@@ -31,6 +31,7 @@ case "$1" in
   "init")
 	$0 GREEN 0
 	$0 GREEN 0
+	;;
  *) exit;;
 esac
 
