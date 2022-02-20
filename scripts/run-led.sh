@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # https://projects-raspberry.com/raspberry-pi-and-gpio-pin-controlling-an-led-with-bash-and-python/
 
 #
