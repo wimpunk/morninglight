@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 HOUR=`date +%H`
-MIN=`date +%m`
+MIN=`date +%M`
 SUM=$((${HOUR}*60+${MIN}))
 
 if [ `date +%u` -lt 6 ]; then
