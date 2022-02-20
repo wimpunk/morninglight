@@ -7,24 +7,31 @@ fi
 
 FILE=/tmp/state
 
-if [ "$1" == "test" ]; then
-	if test -r ${FILE}
-	then STATE=`cat ${FILE}`
-	else STATE=MORNING
-	fi
+if test -r ${FILE}; then
+	OLDSTATE=`cat ${FILE}`
+	echo "Read OLDSTATE ${OLDSTATE}"
+else
+	OLDSTATE=MORNING
+	echo "Unknown OLDSTATE, set to ${OLDSTATE}"
+fi
 
-	case "$STATE" in
-		"MORNING") STATE=DAY
+if [ "$1" == "test" ]; then
+
+	case "$OLDSTATE" in
+		"MORNING") NEWSTATE=DAY
 			;;
-		"DAY") STATE=NIGHT
+		"DAY") NEWSTATE=NIGHT
 			;;
-		"NIGHT") STATE=MORNING
+		"NIGHT") NEWSTATE=MORNING
 			;;
 	esac
 else
-	STATE=$($HOME/fetch-part-of-day.sh)
+	NEWSTATE=$($HOME/fetch-part-of-day.sh)
 fi
 
-echo ${STATE}>${FILE}
+if [ "${NEWSTATE}" != "${OLDSTATE}" ]; then
+	echo "Switching state from ${OLDSTATE} to ${NEWSTATE}"
+fi
+echo ${NEWSTATE}>${FILE}
 
-$HOME/run-led.sh $STATE
+$HOME/run-led.sh ${NEWSTATE}
