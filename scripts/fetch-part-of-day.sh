@@ -5,14 +5,16 @@ MIN=`date +%M`
 SUM=$((${HOUR}*60+${MIN}))
 
 if [ `date +%u` -lt 6 ]; then
-# weekday
-MORNING=$((6*60 + 15))
+	# weekday
+	MORNING=$((6*60 + 15))
+	SNOOZE=15
 else
-# weekend
-MORNING=$((6*60 + 45))
+	# weekend
+	MORNING=$((6*60 + 45))
+	SNOOZE=30
 fi
 
-DAY=$((${MORNING} + 30))
+DAY=$((${MORNING} + ${SNOOZE}))
 # start the night at noon
 # this stops the LEDs
 # looks like it saves energy
