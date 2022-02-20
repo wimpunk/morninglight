@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 HOUR=`date +%H`
 MIN=`date +%M`
