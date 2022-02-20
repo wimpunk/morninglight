@@ -13,7 +13,10 @@ MORNING=$((6*60 + 45))
 fi
 
 DAY=$((${MORNING} + 30))
-NIGHT=$((19*60 + 00))
+# start the night at noon
+# this stops the LEDs
+# looks like it saves energy
+NIGHT=$((12*60 + 00))
 
 if [ ${SUM} -lt ${MORNING} ]
 then echo "NIGHT"
