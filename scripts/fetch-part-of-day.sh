@@ -2,7 +2,7 @@
 
 HOUR=`date +%H`
 MIN=`date +%M`
-SUM=$((${HOUR}*60+${MIN}))
+SUM=$((10#${HOUR}*60+10#${MIN}))
 
 if [ `date +%u` -lt 6 ]; then
 	# weekday
