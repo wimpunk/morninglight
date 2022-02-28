@@ -18,12 +18,14 @@ fi
 NEWSTATE=NIGHT
 if [ "$1" == "test" ]; then
 
-	case "$OLDSTATE" in
+	case "${OLDSTATE}" in
 		"MORNING") NEWSTATE=DAY
 			;;
 		"DAY") NEWSTATE=NIGHT
 			;;
 		"NIGHT") NEWSTATE=MORNING
+			;;
+		"*") NEWSTATE=NIGHT
 			;;
 	esac
 else
