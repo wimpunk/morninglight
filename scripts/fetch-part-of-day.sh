@@ -4,7 +4,7 @@ HOUR=`date +%H`
 MIN=`date +%M`
 SUM=$((10#${HOUR}*60+10#${MIN}))
 
-if grep $(date +%F) holidays.txt; then
+if grep $(date +%F) holidays.txt >/dev/null; then
 	MORNING=$((6*60 + 45))
 	SNOOZE=15
 elif [ `date +%u` -lt 6 ]; then
