@@ -15,6 +15,7 @@ else
 	echo "Unknown OLDSTATE, set to ${OLDSTATE}"
 fi
 
+NEWSTATE=NIGHT
 if [ "$1" == "test" ]; then
 
 	case "$OLDSTATE" in
